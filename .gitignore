@@ -18,7 +18,6 @@ out/*
 *.dat
 *.txt
 
-gradlew.bat
-gradlew
+.gitattributes
+.gitignore
 forge-1.7.10-10.13.4.1614-1.7.10-src.zip
-build.gradle
