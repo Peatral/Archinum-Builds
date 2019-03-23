@@ -1,0 +1,10 @@
+{
+	"gun": {
+		"category": "master",
+		"sounds": ["gun"]
+	},
+	"electricSpark": {
+		"category": "master",
+		"sounds": ["electricSpark"]
+	}
+}
