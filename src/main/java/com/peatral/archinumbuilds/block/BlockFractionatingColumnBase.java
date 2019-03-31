@@ -1,7 +1,7 @@
 package com.peatral.archinumbuilds.block;
 
 import com.peatral.archinumbuilds.ArchinumBuilds;
-import com.peatral.archinumbuilds.tileentity.TileEntityFracionatingColumn;
+import com.peatral.archinumbuilds.tileentity.TileEntityFractionatingColumn;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -28,7 +28,7 @@ public class BlockFractionatingColumnBase extends BlockBase {
     }
 
     public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_) {
-        return Item.getItemFromBlock(ABBlocks.catalyst);
+        return Item.getItemFromBlock(ABBlocks.fractionatingColumnBase);
     }
 
     @SideOnly(Side.CLIENT)
@@ -46,9 +46,9 @@ public class BlockFractionatingColumnBase extends BlockBase {
         if (world.isRemote) {
             return true;
         } else {
-            TileEntityFracionatingColumn tileEntityFracionatingColumn = (TileEntityFracionatingColumn) world.getTileEntity(x, y, z);
+            TileEntityFractionatingColumn tileEntityFractionatingColumn = (TileEntityFractionatingColumn) world.getTileEntity(x, y, z);
 
-            if (tileEntityFracionatingColumn != null) {
+            if (tileEntityFractionatingColumn != null) {
                 entityPlayer.openGui(ArchinumBuilds.instance, 1, world, x, y, z); //TODO: Change id
             }
 
@@ -61,16 +61,16 @@ public class BlockFractionatingColumnBase extends BlockBase {
      */
     @Override
     public TileEntity createNewTileEntity(World world, int p_149915_2_) {
-        return new TileEntityFracionatingColumn();
+        return new TileEntityFractionatingColumn();
     }
 
 
     public void breakBlock(World world, int x, int y, int z, Block block, int p_149749_6_) {
-        TileEntityFracionatingColumn tileEntityFracionatingColumn = (TileEntityFracionatingColumn) world.getTileEntity(x, y, z);
+        TileEntityFractionatingColumn tileEntityFractionatingColumn = (TileEntityFractionatingColumn) world.getTileEntity(x, y, z);
 
-        if (tileEntityFracionatingColumn != null) {
-            for (int i1 = 0; i1 < tileEntityFracionatingColumn.getSizeInventory(); ++i1) {
-                ItemStack itemstack = tileEntityFracionatingColumn.getStackInSlot(i1);
+        if (tileEntityFractionatingColumn != null) {
+            for (int i1 = 0; i1 < tileEntityFractionatingColumn.getSizeInventory(); ++i1) {
+                ItemStack itemstack = tileEntityFractionatingColumn.getStackInSlot(i1);
 
                 if (itemstack != null) {
                     float f = this.random.nextFloat() * 0.8F + 0.1F;

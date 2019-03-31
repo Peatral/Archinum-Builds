@@ -1,6 +1,6 @@
 package com.peatral.archinumbuilds.item;
 
-import com.peatral.archinumbuilds.util.Resource;
+import com.peatral.archinumbuilds.util.ResourceOres;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
@@ -15,9 +15,9 @@ public class ItemBlockOre extends ItemBlockWithMetadata {
     @Override
 	public String getUnlocalizedName(ItemStack item)
 	{
-		if(item.getItemDamage() <= Resource.values().length-1)
+		if(item.getItemDamage() <= ResourceOres.values().length)
 		{
-			return "tile." + Resource.values()[item.getItemDamage()].getName().toLowerCase() + "Ore";
+			return "tile." + ResourceOres.values()[item.getItemDamage()].getName().toLowerCase() + "Ore";
 		}
 		
 		return "Invalid";

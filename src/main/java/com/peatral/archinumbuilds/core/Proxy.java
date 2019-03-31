@@ -4,6 +4,7 @@ import com.peatral.archinumbuilds.ArchinumBuilds;
 import com.peatral.archinumbuilds.handler.GUIHandler;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
+import mekanism.common.base.IGuiProvider;
 
 public class Proxy {
 	public  void registerRenderers(){

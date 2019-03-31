@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
-import com.peatral.archinumbuilds.handler.ConfigurationHandler;
+import com.peatral.archinumbuilds.handler.ConfigHandler;
 import com.peatral.archinumbuilds.ArchinumBuilds;
 import com.peatral.archinumbuilds.util.EnergyUnits;
 import com.peatral.archinumbuilds.util.KeyBindings;
@@ -46,10 +46,10 @@ public class ItemTeslaTablet extends ItemMekanism implements IEnergizedItem {
 
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 
-		String energyItem = EnergyUnits.UnitFinder(this.getEnergy(par1ItemStack), ConfigurationHandler.energyUnit);
-		String energyMax = EnergyUnits.UnitFinder(this.getMaxEnergy(par1ItemStack), ConfigurationHandler.energyUnit);
+		String energyItem = EnergyUnits.UnitFinder(this.getEnergy(par1ItemStack), ConfigHandler.energyUnit);
+		String energyMax = EnergyUnits.UnitFinder(this.getMaxEnergy(par1ItemStack), ConfigHandler.energyUnit);
 		String energyTransfer = EnergyUnits.UnitFinder(this.getMaxTransfer(par1ItemStack),
-				ConfigurationHandler.energyUnit);
+				ConfigHandler.energyUnit);
 
 		if (GuiScreen.isShiftKeyDown()) {
 			if (Keyboard.isKeyDown(KeyBindings.keyModeSwitch.getKeyCode())) {
@@ -113,7 +113,7 @@ public class ItemTeslaTablet extends ItemMekanism implements IEnergizedItem {
 					world.addWeatherEffect((new EntityLightningBolt(world, x, y, z)));
 
 					if (stack.getTagCompound().getInteger("mode") == 3) {
-						world.createExplosion(player, x, y, z, ConfigurationHandler.teslaExplosionsStrength, true);
+						world.createExplosion(player, x, y, z, ConfigHandler.teslaExplosionsStrength, true);
 					}
 
 					if (!player.capabilities.isCreativeMode) {

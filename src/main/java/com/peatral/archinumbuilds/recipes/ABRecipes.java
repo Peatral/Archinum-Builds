@@ -4,7 +4,7 @@ import com.peatral.archinumbuilds.block.ABBlocks;
 import com.peatral.archinumbuilds.gases.ABGases;
 import com.peatral.archinumbuilds.item.ABItems;
 import com.peatral.archinumbuilds.ArchinumBuilds;
-import com.peatral.archinumbuilds.util.Resource;
+import com.peatral.archinumbuilds.util.ResourceOres;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mekanism.api.gas.GasStack;
@@ -26,7 +26,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
 public class ABRecipes {
-    public static InfuseType Diamond;
     public static InfuseType RefinedArchinum;
     public static InfuseType Iron;
     public static InfuseType Gold;
@@ -36,6 +35,7 @@ public class ABRecipes {
         recipesSmelting();
 
         recipesFractionatingColumn();
+        recipesStil();
 
         recipesMekanism();
 
@@ -64,22 +64,26 @@ public class ABRecipes {
         );
     }
 
+    public static void recipesStil(){
+        ABRecipeHelper.addStillRecipe(Items.apple, "spice");
+    }
+
     public static void recipesCrafting() {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ABItems.ControlCircuit, 1, 0), "ABA", 'A', "alloyArchinum", 'B', "circuitUltimate"));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ABItems.teslaTablet, 1, 0), "ABA", "CDC", "ABA", 'A', new ItemStack(ABItems.Dust, 1, 1), 'B', new ItemStack(ABItems.Ingot, 1, 0), 'C', new ItemStack(ABItems.alloyArchinum), 'D', "battery"));
         //GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.dustArchinumRefined, 1), new Object[] {"dustRefinedObsidian","dustArchinum"}));
 
         GameRegistry.addRecipe(new ItemStack(ABItems.thorsHammer, 1), "ACA", "ABA", " D ", 'A', new ItemStack(ABItems.Ingot, 1, 2), 'B', new ItemStack(ABItems.teslaTablet), 'C', new ItemStack(ABItems.ControlCircuit, 1, 0), 'D', new ItemStack(Items.stick, 1));
-        GameRegistry.addRecipe(new ItemStack(ABItems.thorsHelmet, 1), "ABA", "A A", 'A', new ItemStack(ABItems.Ingot, 1, 3), 'B', new ItemStack(ABItems.ControlCircuit, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(ABItems.thorsHelmet, 1), "ABA", "A A", 'A', new ItemStack(ABItems.Ingot, 1, 2), 'B', new ItemStack(ABItems.ControlCircuit, 1, 0));
         GameRegistry.addRecipe(new ItemStack(ABItems.excalibur, 1), " A ", " C ", " D ", 'A', new ItemStack(ABItems.ingotArchinumRefined), 'C', new ItemStack(ABItems.ControlCircuit, 1, 0), 'D', new ItemStack(Items.stick, 1));
 
-        for (int i = 0; i < Resource.values().length; i++) {
+        for (int i = 0; i < ResourceOres.values().length; i++) {
             GameRegistry.addRecipe(new ItemStack(ABBlocks.oreBlock, 1, i), "AAA", "AAA", "AAA", 'A', new ItemStack(ABItems.Ingot, 1, i));
         }
     }
 
     public static void recipesSmelting() {
-        for (int i = 0; i < Resource.values().length; i++) {
+        for (int i = 0; i < ResourceOres.values().length; i++) {
             GameRegistry.addSmelting(new ItemStack(ABBlocks.ore, 1, i), new ItemStack(ABItems.Ingot, 1, i), 20.0F);
             GameRegistry.addSmelting(new ItemStack(ABItems.Dust, 1, i), new ItemStack(ABItems.Ingot, 1, i), 20.0F);
             GameRegistry.addSmelting(new ItemStack(ABItems.Cluster, 1, i), new ItemStack(ABItems.Ingot, 2, i), 20.0F);
@@ -104,7 +108,6 @@ public class ABRecipes {
     }
 
     public static void recipesInfuser() {
-        Diamond = InfuseRegistry.get("Diamond");
         //InfuseTypes
         RefinedArchinum = new InfuseType("RefinedArchinum", ArchinumBuilds.MODID + ":infuse/RefinedArchinum").setUnlocalizedName("archinumRefined");
         InfuseRegistry.registerInfuseType(RefinedArchinum);
@@ -124,7 +127,7 @@ public class ABRecipes {
 
         //Recipes
         NBTTagCompound alloyUltimateArchinumInfuser = new NBTTagCompound();
-        for (ItemStack circuit : OreDictionary.getOres("circuitUltimate")) {
+        for (ItemStack circuit : OreDictionary.getOres("alloyUltimate")) {
             alloyUltimateArchinumInfuser.setTag("input", circuit.writeToNBT(new NBTTagCompound()));
         }
         alloyUltimateArchinumInfuser.setString("infuseType", "RefinedArchinum");
@@ -132,7 +135,7 @@ public class ABRecipes {
         alloyUltimateArchinumInfuser.setTag("output", new ItemStack(ABItems.alloyArchinum).writeToNBT(new NBTTagCompound()));
         FMLInterModComms.sendMessage("Mekanism", "MetallurgicInfuserRecipe", alloyUltimateArchinumInfuser);
 
-        RecipeHelper.addMetallurgicInfuserRecipe(Diamond, 10, new ItemStack(ABItems.Dust, 1, 0), new ItemStack(ABItems.dustArchinumRefined));
+        //RecipeHelper.addMetallurgicInfuserRecipe(Diamond, 10, new ItemStack(ABItems.Dust, 1, 0), new ItemStack(ABItems.dustArchinumRefined));
 
         NBTTagCompound dustKorosiumArchinumInfuser = new NBTTagCompound();
         dustKorosiumArchinumInfuser.setTag("input", new ItemStack(ABItems.Dust, 1, 0).writeToNBT(new NBTTagCompound()));
@@ -150,7 +153,7 @@ public class ABRecipes {
     }
 
     public static void recipesCrusher() {
-        for (int i = 0; i < Resource.values().length; i++) {
+        for (int i = 0; i < ResourceOres.values().length; i++) {
             NBTTagCompound ingotCrusher = new NBTTagCompound();
             ingotCrusher.setTag("input", new ItemStack(ABItems.Ingot, 1, i).writeToNBT(new NBTTagCompound()));
             ingotCrusher.setTag("output", new ItemStack(ABItems.Dust, 1, i).writeToNBT(new NBTTagCompound()));
@@ -174,27 +177,27 @@ public class ABRecipes {
     }
 
     public static void recipesCombiner() {
-        for (int i = 0; i < Resource.values().length; i++) {
+        for (int i = 0; i < ResourceOres.values().length; i++) {
             RecipeHelper.addCombinerRecipe(new ItemStack(ABItems.Dust, 1, i), new ItemStack(ABBlocks.ore, 1, i));
         }
     }
 
     public static void recipesEnrichmentChamber() {
-        for (int i = 0; i < Resource.values().length; i++) {
+        for (int i = 0; i < ResourceOres.values().length; i++) {
             RecipeHelper.addEnrichmentChamberRecipe(new ItemStack(ABBlocks.ore, 1, i), new ItemStack(ABItems.Dust, 2, i));
             RecipeHelper.addEnrichmentChamberRecipe(new ItemStack(ABItems.DirtyDust, 1, i), new ItemStack(ABItems.Dust, 1, i));
         }
     }
 
     public static void recipesPurificationChamber() {
-        for (int i = 0; i < Resource.values().length; i++) {
+        for (int i = 0; i < ResourceOres.values().length; i++) {
             RecipeHelper.addPurificationChamberRecipe(new ItemStack(ABBlocks.ore, 1, i), new ItemStack(ABItems.Clump, 3, i));
             RecipeHelper.addPurificationChamberRecipe(new ItemStack(ABItems.Shard, 1, i), new ItemStack(ABItems.Clump, 1, i));
         }
     }
 
     public static void recipesChemicalInjectionChamber() {
-        for (int i = 0; i < Resource.values().length; i++) {
+        for (int i = 0; i < ResourceOres.values().length; i++) {
             RecipeHelper.addChemicalInjectionChamberRecipe(new ItemStack(ABBlocks.ore, 1, i), "hydrogenChloride", new ItemStack(ABItems.Shard, 4, i));
             RecipeHelper.addChemicalInjectionChamberRecipe(new ItemStack(ABItems.Crystal, 1, i), "hydrogenChloride", new ItemStack(ABItems.Shard, 1, i));
         }
@@ -206,8 +209,8 @@ public class ABRecipes {
 
     //THAUMCRAFT
     public static void recipesThaumcraft() {
-        for (int i = 0; i < 4; i++) {
-            ThaumcraftApi.addCrucibleRecipe("ab" + Resource.values()[0].getName() + "Cluster", new ItemStack(ABItems.Cluster, 1, 0), new ItemStack(ABBlocks.ore, 1, 0), new AspectList().add(Aspect.METAL, 2).add(Aspect.ORDER, 2));
+        for (int i = 0; i < ResourceOres.values().length; i++) {
+            ThaumcraftApi.addCrucibleRecipe("ab" + ResourceOres.values()[0].getName() + "Cluster", new ItemStack(ABItems.Cluster, 1, 0), new ItemStack(ABBlocks.ore, 1, 0), new AspectList().add(Aspect.METAL, 2).add(Aspect.ORDER, 2));
         }
 
     }

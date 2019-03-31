@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
-import com.peatral.archinumbuilds.handler.ConfigurationHandler;
+import com.peatral.archinumbuilds.handler.ConfigHandler;
 import com.peatral.archinumbuilds.handler.KeyHandler;
 import com.peatral.archinumbuilds.ArchinumBuilds;
 import com.peatral.archinumbuilds.util.EnergyUnits;
@@ -45,9 +45,9 @@ public class ItemThorsHammer extends Item implements IEnergizedItem {
 
 	public void addInformation(ItemStack stack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 
-		String energyItem = EnergyUnits.UnitFinder(this.getEnergy(stack), ConfigurationHandler.energyUnit);
-		String energyMax = EnergyUnits.UnitFinder(this.getMaxEnergy(stack), ConfigurationHandler.energyUnit);
-		String energyTransfer = EnergyUnits.UnitFinder(this.getMaxTransfer(stack), ConfigurationHandler.energyUnit);
+		String energyItem = EnergyUnits.UnitFinder(this.getEnergy(stack), ConfigHandler.energyUnit);
+		String energyMax = EnergyUnits.UnitFinder(this.getMaxEnergy(stack), ConfigHandler.energyUnit);
+		String energyTransfer = EnergyUnits.UnitFinder(this.getMaxTransfer(stack), ConfigHandler.energyUnit);
 
 		if (GuiScreen.isShiftKeyDown()) {
 

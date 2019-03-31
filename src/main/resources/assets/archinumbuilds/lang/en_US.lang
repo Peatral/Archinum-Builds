@@ -1,5 +1,5 @@
-#Ore Items
-#Archinum
+######## Ore Items ########
+######## Archinum ########
 item.archinumIngot.name=Archinum Ingot
 item.archinumDust.name=Archinum Dust
 item.archinumClump.name=Archinum Clump
@@ -9,7 +9,9 @@ item.dirtyArchinumDust.name=Dirty Archinum Dust
 item.archinumCluster.name=Native Archinum Cluster
 
 item.archinumControlCircuit.name=Archinum Control Circuit
-#Korosium
+
+
+######## Korosium ########
 item.korosiumIngot.name=Korosium Ingot
 item.korosiumDust.name=Korosium Dust
 item.korosiumClump.name=Korosium Clump
@@ -17,65 +19,70 @@ item.korosiumShard.name=Korosium Shard
 item.korosiumCrystal.name=Korosium Crystal
 item.dirtyKorosiumDust.name=Dirty Korosium Dust
 item.korosiumCluster.name=Native Korosium Cluster
-#Star
-item.starIngot.name=Star Ingot
-item.starDust.name=Star Dust
-item.starClump.name=Star Clump
-item.starShard.name=Star Shard
-item.starCrystal.name=Star Crystal
-item.dirtyStarDust.name=Dirty Star Dust
-item.starCluster.name=Native Star Cluster
-#Dragon
-item.dragonIngot.name=Dragon Ingot
-item.dragonDust.name=Dragon Dust
-item.dragonClump.name=Dragon Clump
-item.dragonShard.name=Dragon Shard
-item.dragonCrystal.name=Dragon Crystal
-item.dirtyDragonDust.name=Dirty Dragon Dust
-item.dragonCluster.name=Native Dragon Cluster
-#Boss
-item.bossIngot.name=Boss Ingot
-item.bossDust.name=Boss Dust
-item.bossClump.name=Boss Clump
-item.bossShard.name=Boss Shard
-item.bossCrystal.name=Boss Crystal
-item.dirtyBossDust.name=Dirty Boss Dust
-item.bossCluster.name=Boss Cluster
 
-#Ore Blocks
+
+######## Chromium ########
+item.chromiumIngot.name=Chromium Ingot
+item.chromiumDust.name=Chromium Dust
+item.chromiumClump.name=Chromium Clump
+item.chromiumShard.name=Chromium Shard
+item.chromiumCrystal.name=Chromium Crystal
+item.dirtyChromiumDust.name=Dirty Chromium Dust
+item.chromiumCluster.name=Native Chromium Cluster
+
+
+######## Ore Blocks ########
 tile.archinumOre.name=Archinum Ore
 tile.korosiumOre.name=Artificial Korosium Ore
-tile.starOre.name=Artificial Star Ore
-tile.dragonOre.name=Artificial Dragon Ore
-tile.bossOre.name=Artificial Boss Ore
+tile.chromiumOre.name=Artificial Chromium Ore
 
 tile.archinumBlock.name=Archinum Block
 tile.korosiumBlock.name=Korosium Block
-tile.starBlock.name=Star Block
-tile.dragonBlock.name=Dragon Block
-tile.bossBlock.name=Boss Block
+tile.chromiumBlock.name=Chromium Block
 
-#Other Stuff
-#Machines
+
+######## Fragrances ########
+smell=Smell
+smell.spice=Spice
+smell.garlic=Garlic
+smell.sage=Sage
+smell.incense=Incense
+
+item.fragrancePure.name=Pure Fragrance
+item.fragranceFlask.name=Fragrance Flask
+item.fragranceFlaskEmpty.name=Empty Fragrance Flask
+
+
+######## Other Stuff ########
+######## Machines ########
 tile.catalyst.name=Catalyst
-tile.catalystActive=Active Catalyst
+tile.catalystActive.name=Active Catalyst
 container.catalyst=Catalyst
 
 tile.fractionatingColumnBase.name=Fractionating Column Base
 container.fractionatingColumn=Fractionating Column
 
-#Archinum Stuff
+tile.fragranceMixer.name=Fragrance Mixer
+container.fragranceMixer=Fragrance Mixer
+
+tile.still.name=Still
+container.still=Still
+
+######## Archinum Stuff ########
 
 item.ingotArchinumRefined.name=Refined Archinum Ingot
 item.dustArchinumRefined.name=Refined Archinum Dust
 item.alloyArchinum.name=Archinum Alloy
 
-#Infuse Types
+
+######## Infuse Types ########
 infuse.archinumRefined=Refined Archinum
 infuse.iron=Iron
 infuse.gold=Gold
 
 itemGroup.tabArchinumBuilds=Archinum Builds
+itemGroup.tabABFragrance=AB Fragrance
+itemGroup.tabABCombat=AB Combat
 
 gas.archinum=Archinum
 fluid.archinum=Liquid Archinum
@@ -87,7 +94,8 @@ key.archinumbuilds.3DMGLaunch=3DMG Launch
 key.archinumbuilds.3DMGActivate=3DMG Activate
 key.archinumbuilds.category=Archinum Builds
 
-#Thor's Hammer
+
+######## Thor's Hammer ########
 item.thorsHammer.name=§5Thor's Hammer
 
 th.ab.desc.details=A powerful weapon, able to throw lightnings and make his owner fly!
@@ -112,7 +120,8 @@ boo.ab.damageamplifier=§aDamage Amplifier: §7
 
 item.gun.name=WOOD`s Super Duper Gun
 
-#Tesla Tablet
+
+######## Tesla Tablet ########
 item.teslaTablet.name=Tesla Tablet
 
 ttmodes.ab.name.battery=Battery
@@ -130,7 +139,19 @@ ttmodes.ab.toggle.message=§7Mode toggled to §5
 tt.ab.desc.details.line1=A Battery with more than the function to charge and discharge
 tt.ab.desc.details.line2=Mode: 
 
-#Gui
+
+######## Config ########
+ab.configgui.ctgy.general=General
+ab.configgui.ctgy.world=World
+ab.configgui.ctgy.fragrance=Fragrance
+ab.configgui.ctgy.combat=Combat
+
+ab.configgui.ctgy.general.tooltip=The general settings of AB.
+ab.configgui.ctgy.world.tooltip=Stuff like oregeneration.
+ab.configgui.ctgy.fragrance.tooltip=All fragrance-related Settings of AB.
+ab.configgui.ctgy.combat.tooltip=All combat-related Settings of AB.
+
+######## Gui ########
 gui.ab.holdshift=§7Hold §9LSHIFT §7for details.
 gui.ab.holdshift+key.part1=§7Hold §bLSHIFT §7and §b
 gui.ab.holdshift+key.part2= §7for a description.
@@ -140,7 +161,8 @@ gui.ab.capacity=§9Capacity: §7
 
 gui.ab.maxtransfer=§aMax transfer: §7
 
-#Thaumcraft Integration
+
+######## Thaumcraft Integration ########
 tc.research_category.abCategory=Archinum Builds
 
 tc.research_name.abArchinumClusters=Native Archinum Cluster

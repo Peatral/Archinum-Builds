@@ -2,7 +2,7 @@ package com.peatral.archinumbuilds.item;
 
 import com.peatral.archinumbuilds.ArchinumBuilds;
 import com.peatral.archinumbuilds.creativetabs.ABCreativeTabs;
-import com.peatral.archinumbuilds.util.Resource;
+import com.peatral.archinumbuilds.util.ResourceOres;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
@@ -41,27 +41,31 @@ public class ABItems {
 	public static Item Shard;
 	public static Item Crystal;
 	public static Item Cluster;
-	
+
+	public static Item fragrancePure;
+	public static Item fragranceFlaskEmpty;
+	public static Item fragranceFlask;
+
 	public static Item ControlCircuit;	
 
 	public static void initializeItems() {
 		ArmorMaterial armor = EnumHelper.addArmorMaterial("armor", 0, new int[]{3, 8, 6, 3}, 0);
 		ToolMaterial legend = EnumHelper.addToolMaterial("archinum", 3, 5000, 15.0F, 7, 22);
 		
-		dustArchinumRefined = new Item().setUnlocalizedName("dustArchinumRefined").setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setTextureName(ArchinumBuilds.MODID + ":RefinedArchinumDust");
-		ingotArchinumRefined = new Item().setUnlocalizedName("ingotArchinumRefined").setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setTextureName(ArchinumBuilds.MODID + ":RefinedArchinumIngot");
-		alloyArchinum = new Item().setUnlocalizedName("alloyArchinum").setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setTextureName(ArchinumBuilds.MODID + ":ArchinumAlloy");
-		teslaTablet = new ItemTeslaTablet(5000000).setUnlocalizedName("teslaTablet").setCreativeTab(ABCreativeTabs.tabArchinumBuilds);
-		thorsHammer = new ItemThorsHammer(100000000).setUnlocalizedName("thorsHammer").setCreativeTab(ABCreativeTabs.tabArchinumBuilds);
-		excalibur = new ItemExcalibur(legend).setUnlocalizedName("excalibur").setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setTextureName(ArchinumBuilds.MODID + ":Excalibur");
-		bladeOlympus = new ItemBladeOfOlympus(legend, 2000000000).setUnlocalizedName("bladeofolympus").setCreativeTab(ABCreativeTabs.tabArchinumBuilds);
+		dustArchinumRefined = new Item().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setUnlocalizedName("dustArchinumRefined").setTextureName(ArchinumBuilds.MODID + ":RefinedArchinumDust");
+		ingotArchinumRefined = new Item().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setUnlocalizedName("ingotArchinumRefined").setTextureName(ArchinumBuilds.MODID + ":RefinedArchinumIngot");
+		alloyArchinum = new Item().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setUnlocalizedName("alloyArchinum").setTextureName(ArchinumBuilds.MODID + ":ArchinumAlloy");
+		teslaTablet = new ItemTeslaTablet(5000000).setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setUnlocalizedName("teslaTablet");
+		thorsHammer = new ItemThorsHammer(100000000).setCreativeTab(ABCreativeTabs.tabCombat).setUnlocalizedName("thorsHammer");
+		excalibur = new ItemExcalibur(legend).setCreativeTab(ABCreativeTabs.tabCombat).setUnlocalizedName("excalibur").setTextureName(ArchinumBuilds.MODID + ":Excalibur");
+		bladeOlympus = new ItemBladeOfOlympus(legend, 2000000000).setCreativeTab(ABCreativeTabs.tabCombat).setUnlocalizedName("bladeofolympus");
 		
-		thorsHelmet = new ItemArmorThorsHelmet(0).setUnlocalizedName("thorsHelmet").setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setTextureName(ArchinumBuilds.MODID + ":thorsHelmet");
-		threedmg = new ItemArmor3DMG(2).setUnlocalizedName("3DMG").setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setTextureName(ArchinumBuilds.MODID  + ":3DMG");
+		thorsHelmet = new ItemArmorThorsHelmet(0).setCreativeTab(ABCreativeTabs.tabCombat).setUnlocalizedName("thorsHelmet").setTextureName(ArchinumBuilds.MODID + ":thorsHelmet");
+		threedmg = new ItemArmor3DMG(2).setCreativeTab(ABCreativeTabs.tabCombat).setUnlocalizedName("3DMG").setTextureName(ArchinumBuilds.MODID  + ":3DMG");
 		
-		threedmgSword = new Item3DMGSword(legend).setUnlocalizedName("3DMGSword").setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setTextureName(ArchinumBuilds.MODID + ":3DMGSword");
+		threedmgSword = new Item3DMGSword(legend).setCreativeTab(ABCreativeTabs.tabCombat).setUnlocalizedName("3DMGSword").setTextureName(ArchinumBuilds.MODID + ":3DMGSword");
 		
-		gun = new Item().setUnlocalizedName("gun").setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setFull3D().setTextureName(ArchinumBuilds.MODID + ":Gun").setMaxStackSize(1);
+		gun = new Item().setUnlocalizedName("gun").setCreativeTab(ABCreativeTabs.tabCombat).setFull3D().setTextureName(ArchinumBuilds.MODID + ":Gun").setMaxStackSize(1);
 		
 		Dust = new ItemDust().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setHasSubtypes(true);
 		Ingot = new ItemIngot().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setHasSubtypes(true);
@@ -72,19 +76,28 @@ public class ABItems {
 		Cluster = new ItemCluster().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setHasSubtypes(true);
 		
 		ControlCircuit = new ItemCircuit().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setHasSubtypes(true);
+
+		fragrancePure = new ItemFragrancePure().setCreativeTab(ABCreativeTabs.tabFragrance);
+		fragranceFlaskEmpty = new ItemFragranceFlaskEmpty().setCreativeTab(ABCreativeTabs.tabFragrance).setUnlocalizedName("fragranceFlaskEmpty").setTextureName(ArchinumBuilds.MODID + ":fragrance_flask_flask");
+		fragranceFlask = new ItemFragranceFlask().setCreativeTab(ABCreativeTabs.tabFragrance).setUnlocalizedName("fragranceFlask");
+
 	}
 
 	public static void registerItems() {
 		
-		GameRegistry.registerItem(Dust, "Dust");
-		GameRegistry.registerItem(Ingot, "Ingot");
-		GameRegistry.registerItem(Clump, "Clump");
-		GameRegistry.registerItem(DirtyDust, "DirtyDust");
-		GameRegistry.registerItem(Shard, "Shard");
-		GameRegistry.registerItem(Crystal, "Crystal");
+		GameRegistry.registerItem(Dust, "dust");
+		GameRegistry.registerItem(Ingot, "ingot");
+		GameRegistry.registerItem(Clump, "clump");
+		GameRegistry.registerItem(DirtyDust, "dirtyDust");
+		GameRegistry.registerItem(Shard, "shard");
+		GameRegistry.registerItem(Crystal, "crystal");
 		
-		GameRegistry.registerItem(Cluster, "Cluster");
-		
+		GameRegistry.registerItem(Cluster, "cluster");
+
+		GameRegistry.registerItem(fragrancePure, "fragrancePure");
+		GameRegistry.registerItem(fragranceFlaskEmpty, "fragranceFlaskEmpty");
+		GameRegistry.registerItem(fragranceFlask, "fragranceFlask");
+
 			
 		GameRegistry.registerItem(ingotArchinumRefined, "ingotArchinumRefined");
 		OreDictionary.registerOre("ingotRefinedArchinum", new ItemStack(ingotArchinumRefined));
@@ -109,20 +122,16 @@ public class ABItems {
 		GameRegistry.registerItem(ControlCircuit, "ControlCircuit");
 		OreDictionary.registerOre("archinumCircuit", new ItemStack(ControlCircuit, 0, 0));
 		
-		for(int i = 0; i < Resource.values().length; i++)
+		for(int i = 0; i < ResourceOres.values().length; i++)
 		{
-			OreDictionary.registerOre("dust" + Resource.values()[i].getName(), new ItemStack(Dust, 0, i));
-			OreDictionary.registerOre("ingot" + Resource.values()[i].getName(), new ItemStack(Ingot, 0, i));
-			OreDictionary.registerOre("clump" + Resource.values()[i].getName(), new ItemStack(Clump, 0, i));
-			OreDictionary.registerOre("dustDirty" + Resource.values()[i].getName(), new ItemStack(DirtyDust, 0, i));
-			OreDictionary.registerOre("shard" + Resource.values()[i].getName(), new ItemStack(Shard, 0, i));
-			OreDictionary.registerOre("crystal" + Resource.values()[i].getName(), new ItemStack(Crystal, 0, i));
+			OreDictionary.registerOre("dust" + ResourceOres.values()[i].getName(), new ItemStack(Dust, 0, i));
+			OreDictionary.registerOre("ingot" + ResourceOres.values()[i].getName(), new ItemStack(Ingot, 0, i));
+			OreDictionary.registerOre("clump" + ResourceOres.values()[i].getName(), new ItemStack(Clump, 0, i));
+			OreDictionary.registerOre("dustDirty" + ResourceOres.values()[i].getName(), new ItemStack(DirtyDust, 0, i));
+			OreDictionary.registerOre("shard" + ResourceOres.values()[i].getName(), new ItemStack(Shard, 0, i));
+			OreDictionary.registerOre("crystal" + ResourceOres.values()[i].getName(), new ItemStack(Crystal, 0, i));
 			
-			OreDictionary.registerOre("cluster" + Resource.values()[i].getName(), new ItemStack(Cluster, 0, i));	
+			OreDictionary.registerOre("cluster" + ResourceOres.values()[i].getName(), new ItemStack(Cluster, 0, i));
 		}
-		
-		
-		
-		
 	}
 }

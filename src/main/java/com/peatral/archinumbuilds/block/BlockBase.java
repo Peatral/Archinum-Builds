@@ -1,7 +1,7 @@
 package com.peatral.archinumbuilds.block;
 
 import com.peatral.archinumbuilds.ArchinumBuilds;
-import com.peatral.archinumbuilds.tileentity.TileEntityFracionatingColumn;
+import com.peatral.archinumbuilds.tileentity.TileEntityFractionatingColumn;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -106,7 +106,7 @@ public class BlockBase extends BlockContainer {
         }
 
         if (itemStack.hasDisplayName()) {
-            ((TileEntityFracionatingColumn) world.getTileEntity(x, y, z)).setInventoryName(itemStack.getDisplayName());
+            ((TileEntityFractionatingColumn) world.getTileEntity(x, y, z)).setInventoryName(itemStack.getDisplayName());
         }
     }
 

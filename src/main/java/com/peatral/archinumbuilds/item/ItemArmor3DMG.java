@@ -1,7 +1,7 @@
 package com.peatral.archinumbuilds.item;
 
 import com.peatral.archinumbuilds.entity.Entity3DMGHook;
-import com.peatral.archinumbuilds.handler.ConfigurationHandler;
+import com.peatral.archinumbuilds.handler.ConfigHandler;
 import com.peatral.archinumbuilds.handler.KeyHandler;
 import com.peatral.archinumbuilds.ArchinumBuilds;
 import com.peatral.archinumbuilds.client.Models.Model3DMGSingle;
@@ -101,8 +101,8 @@ public class ItemArmor3DMG extends ItemArmor {
                 Vec middleVec = Vec.middleVec(hookLeftPos, hookRightPos);
 
                 Vec distVec = playerPos.subtract(middleVec);
-                double stiffness = ConfigurationHandler.threedmgStiffness;
-                double mass = ConfigurationHandler.playerMass;
+                double stiffness = ConfigHandler.threedmgStiffness;
+                double mass = ConfigHandler.playerMass;
 
                 Vec acceleration = distVec.multiply(-stiffness).divide(mass).constrain(Vec.maxLenth);
 

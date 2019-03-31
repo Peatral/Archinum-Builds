@@ -3,7 +3,7 @@ package com.peatral.archinumbuilds.block;
 import java.util.List;
 
 import com.peatral.archinumbuilds.ArchinumBuilds;
-import com.peatral.archinumbuilds.util.Resource;
+import com.peatral.archinumbuilds.util.ResourceOres;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -31,9 +31,9 @@ public class BlockOre extends Block {
 	@Override
 	public void registerBlockIcons(IIconRegister register)
 	{
-		for(int i = 0; i < Resource.values().length; i++)
+		for(int i = 0; i < ResourceOres.values().length; i++)
 		{
-			icons[i] = register.registerIcon(ArchinumBuilds.MODID + ":" + Resource.values()[i].getName() + "Ore");
+			icons[i] = register.registerIcon(ArchinumBuilds.MODID + ":" + ResourceOres.values()[i].getName() + "Ore");
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class BlockOre extends Block {
 	
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-	    for (int i = 0; i < Resource.values().length; i ++) {
+	    for (int i = 0; i < ResourceOres.values().length; i ++) {
 	        list.add(new ItemStack(item, 1, i));
 	    }
 	}

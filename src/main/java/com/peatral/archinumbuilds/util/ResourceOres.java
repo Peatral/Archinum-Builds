@@ -1,23 +1,21 @@
 package com.peatral.archinumbuilds.util;
 
-public enum Resource
+public enum ResourceOres
 {
 	ARCHINUM("Archinum"),
 	KOROSIUM("Korosium"),
-	STAR("Star"),
-	DRAGON("Dragon");//,
-	//BOSS("Boss");
+	CHROMIUM("Chromium");
 
 	private String name;
 
-	private Resource(String s)
+	ResourceOres(String name)
 	{
-		name = s;
+		this.name = name;
 	}
 
-	public static Resource getFromName(String s)
+	public static ResourceOres getFromName(String s)
 	{
-		for(Resource r : values())
+		for(ResourceOres r : values())
 		{
 			if(r.name.toLowerCase().equals(s.toLowerCase()))
 			{

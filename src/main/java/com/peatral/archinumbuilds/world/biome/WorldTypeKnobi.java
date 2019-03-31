@@ -11,7 +11,6 @@ public class WorldTypeKnobi extends WorldType {
 
     public WorldTypeKnobi(int par1, String name) {
         super(name);
-        // TODO Auto-generated constructor stub
     }
 
     public GenLayer getBiomeLayer(long worldSeed, GenLayer parentLayer) {

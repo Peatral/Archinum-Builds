@@ -1,8 +1,10 @@
 package com.peatral.archinumbuilds.item;
 
+import com.peatral.archinumbuilds.smells.SmellRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.world.World;
 
 public class Item3DMGSword extends ItemSword {
 	public Item3DMGSword(ToolMaterial material) {

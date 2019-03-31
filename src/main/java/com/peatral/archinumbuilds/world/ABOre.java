@@ -3,7 +3,7 @@ package com.peatral.archinumbuilds.world;
 import java.util.Random;
 
 import com.peatral.archinumbuilds.block.ABBlocks;
-import com.peatral.archinumbuilds.handler.ConfigurationHandler;
+import com.peatral.archinumbuilds.handler.ConfigHandler;
 
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
@@ -60,7 +60,7 @@ public class ABOre implements IWorldGenerator {
 	}
 
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world) {
-		addOre(ABBlocks.ore, 0, Blocks.stone, random, world, chunkX, chunkZ, ConfigurationHandler.archinumMinY, ConfigurationHandler.archinumMaxY, ConfigurationHandler.archinumMinVein, ConfigurationHandler.archinumMaxVein, ConfigurationHandler.archinumSpawnChance);
+		addOre(ABBlocks.ore, 0, Blocks.stone, random, world, chunkX, chunkZ, ConfigHandler.archinumMinY, ConfigHandler.archinumMaxY, ConfigHandler.archinumMinVein, ConfigHandler.archinumMaxVein, ConfigHandler.archinumSpawnChance);
 	}
 
 	private void generateNether(Random random, int chunkX, int chunkZ, World world) {

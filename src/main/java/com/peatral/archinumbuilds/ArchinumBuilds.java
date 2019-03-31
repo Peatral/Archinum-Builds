@@ -3,10 +3,10 @@ package com.peatral.archinumbuilds;
 import com.peatral.archinumbuilds.core.Proxy;
 import com.peatral.archinumbuilds.block.ABBlocks;
 import com.peatral.archinumbuilds.entity.ABEntities;
-import com.peatral.archinumbuilds.gases.ABGases;
 import com.peatral.archinumbuilds.handler.*;
 import com.peatral.archinumbuilds.recipes.ABRecipes;
 import com.peatral.archinumbuilds.item.ABItems;
+import com.peatral.archinumbuilds.smells.ABSmells;
 import com.peatral.archinumbuilds.tileentity.ABTileEntities;
 import com.peatral.archinumbuilds.world.ABWorld;
 import com.peatral.archinumbuilds.world.biome.ABBiomeRegistry;
@@ -44,21 +44,17 @@ public class ArchinumBuilds {
     @EventHandler
     public static void preInit(FMLPreInitializationEvent e) {
         String configDir = e.getModConfigurationDirectory().toString();
-        ConfigurationHandler.mainRegistry(configDir);
-        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+        ConfigHandler.mainRegistry(configDir);
+        FMLCommonHandler.instance().bus().register(new ConfigHandler());
 
-
+        ABSmells.mainRegistry();
         ABCreativeTabs.mainRegistry();
         ABTileEntities.mainRegistry();
         ABEntities.mainRegistry();
         ABItems.mainRegistry();
         ABBlocks.mainRegistry();
-        ABGases.mainRegistry();
+        //ABGases.mainRegistry();
         ABEntities.mainRegistry();
-
-        ABBiomeRegistry.mainRegistry();
-
-        ABWorld.mainRegistry();
 
         proxy.registerTileEntity();
 
@@ -67,9 +63,12 @@ public class ArchinumBuilds {
     @EventHandler
     public static void init(FMLInitializationEvent e) {
 
+        ABBiomeRegistry.mainRegistry();
+        ABWorld.mainRegistry();
+
         proxy.registerNetworkStuff();
         proxy.registerRenderers();
-        ABRecipes.mainRegistry();
+
         KeyBindings.mainRegistry();
 
         FMLCommonHandler.instance().bus().register(new KeyHandler());
@@ -84,6 +83,7 @@ public class ArchinumBuilds {
     public static void postInit(FMLPostInitializationEvent e) {
         BiomeDictionary.registerAllBiomes();
 
+        ABRecipes.mainRegistry();
 
         thaumcraftInstalled = Loader.isModLoaded("Thaumcraft");
 

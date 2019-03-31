@@ -1,6 +1,6 @@
 package com.peatral.archinumbuilds.entity;
 
-import com.peatral.archinumbuilds.handler.ConfigurationHandler;
+import com.peatral.archinumbuilds.handler.ConfigHandler;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -21,7 +21,7 @@ public class EntityEnergyBall extends EntityThrowable
 
 	private void explode()
 	{
-		worldObj.createExplosion(this, this.posX, this.posY, this.posZ, ConfigurationHandler.energyExplosionsStrength, true);
+		worldObj.createExplosion(this, this.posX, this.posY, this.posZ, ConfigHandler.energyExplosionsStrength, true);
 		setDead();
 	}
 
