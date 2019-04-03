@@ -20,9 +20,9 @@ public class ABBiomeRegistry {
     }
 
     public static void registerBiome() {
-        BiomeDictionary.registerBiomeType(biomeKnob, Type.FOREST);
+        BiomeDictionary.registerBiomeType(biomeKnob, Type.SAVANNA);
         BiomeManager.addSpawnBiome(biomeKnob);
-        BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(biomeKnob, 20));
+        BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(biomeKnob, 10));
         BiomeManager.addVillageBiome(biomeKnob, false);
     }
 }

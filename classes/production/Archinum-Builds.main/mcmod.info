@@ -1,0 +1,17 @@
+[
+{
+  "modid": "archinumbuilds",
+  "name": "Archinum Builds",
+  "version": "0.0.1",
+  "mcversion": "1.7.10",
+  "description": "Awesome Stuff but nothing special.",
+  "credits": "The Dudes who supported me. Also Aidan Brady for inspiring me, he created Mekanism.",
+  "logoFile": "logo.png",
+  "url": "http://www.peatral.github.io/",
+  "updateUrl": "",
+  "authorList": [ "Peatral" ],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": []
+}
+]

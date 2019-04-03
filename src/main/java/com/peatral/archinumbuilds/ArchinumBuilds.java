@@ -66,6 +66,8 @@ public class ArchinumBuilds {
         ABBiomeRegistry.mainRegistry();
         ABWorld.mainRegistry();
 
+        ABRecipes.mainRegistry();
+
         proxy.registerNetworkStuff();
         proxy.registerRenderers();
 
@@ -82,8 +84,6 @@ public class ArchinumBuilds {
     @EventHandler
     public static void postInit(FMLPostInitializationEvent e) {
         BiomeDictionary.registerAllBiomes();
-
-        ABRecipes.mainRegistry();
 
         thaumcraftInstalled = Loader.isModLoaded("Thaumcraft");
 

@@ -3,6 +3,8 @@ package com.peatral.archinumbuilds.block;
 import com.peatral.archinumbuilds.item.ItemBlockOre;
 import com.peatral.archinumbuilds.item.ItemBlockOreBlock;
 import com.peatral.archinumbuilds.creativetabs.ABCreativeTabs;
+import com.peatral.archinumbuilds.item.ItemBlockResinSapling;
+import com.peatral.archinumbuilds.item.ItemBlockResinWood;
 import com.peatral.archinumbuilds.util.ResourceOres;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -21,6 +23,8 @@ public class ABBlocks {
 	public static Block oreBlock;
 	public static Block catalyst;
 	public static Block catalystActive;
+	public static Block resinWood;
+	public static Block resinSapling;
 
 	public static Block fractionatingColumnBase;
 
@@ -30,7 +34,10 @@ public class ABBlocks {
 	public static void initializeBlocks() {
 		ore = new BlockOre(Material.iron, "BlockOre").setCreativeTab(ABCreativeTabs.tabArchinumBuilds);
 		oreBlock = new BlockOreBlock(Material.iron, "BlockOreBlock").setCreativeTab(ABCreativeTabs.tabArchinumBuilds);
-		
+
+		resinWood = new BlockResinWood("BlockResinWood").setCreativeTab(ABCreativeTabs.tabArchinumBuilds);
+		resinSapling = new BlockResinSapling("BlockResinSapling").setCreativeTab(ABCreativeTabs.tabArchinumBuilds);
+
 		catalyst = new BlockCatalyst(false).setBlockName("catalyst").setCreativeTab(ABCreativeTabs.tabArchinumBuilds);
 		catalystActive = new BlockCatalyst(true).setBlockName("catalystActive");
 
@@ -43,7 +50,9 @@ public class ABBlocks {
 	public static void registerBlocks() {
 		GameRegistry.registerBlock(ore, ItemBlockOre.class, "BlockOre");
 		GameRegistry.registerBlock(oreBlock, ItemBlockOreBlock.class, "BlockOreBlock");
-		
+		GameRegistry.registerBlock(resinWood, ItemBlockResinWood.class, "BlockResinWood");
+		GameRegistry.registerBlock(resinSapling, ItemBlockResinSapling.class, "BlockResinSapling");
+
 		for(int i = 0; i < ResourceOres.values().length; i++)
 		{
 			OreDictionary.registerOre("ore" + ResourceOres.values()[i].getName(), new ItemStack(ore, 0, i));

@@ -20,6 +20,8 @@ public class ABItems {
 	
 	public static Item dustArchinumRefined;
 	public static Item ingotArchinumRefined;
+
+	public static Item resign;
 	
 	public static Item alloyArchinum;
 	public static Item teslaTablet;
@@ -76,6 +78,7 @@ public class ABItems {
 		Cluster = new ItemCluster().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setHasSubtypes(true);
 		
 		ControlCircuit = new ItemCircuit().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setHasSubtypes(true);
+		resign = new ItemResin().setCreativeTab(ABCreativeTabs.tabArchinumBuilds).setHasSubtypes(true);
 
 		fragrancePure = new ItemFragrancePure().setCreativeTab(ABCreativeTabs.tabFragrance);
 		fragranceFlaskEmpty = new ItemFragranceFlaskEmpty().setCreativeTab(ABCreativeTabs.tabFragrance).setUnlocalizedName("fragranceFlaskEmpty").setTextureName(ArchinumBuilds.MODID + ":fragrance_flask_flask");
@@ -98,7 +101,7 @@ public class ABItems {
 		GameRegistry.registerItem(fragranceFlaskEmpty, "fragranceFlaskEmpty");
 		GameRegistry.registerItem(fragranceFlask, "fragranceFlask");
 
-			
+		GameRegistry.registerItem(resign, "resign");
 		GameRegistry.registerItem(ingotArchinumRefined, "ingotArchinumRefined");
 		OreDictionary.registerOre("ingotRefinedArchinum", new ItemStack(ingotArchinumRefined));
 		GameRegistry.registerItem(dustArchinumRefined, "dustArchinumRefined");
