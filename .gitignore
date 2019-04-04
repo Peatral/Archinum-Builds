@@ -18,6 +18,9 @@ classes/*
 *.baub
 *.dat
 *.txt
+*.iml
+*.iws
+*.ipr
 
 .gitattributes
 .gitignore
