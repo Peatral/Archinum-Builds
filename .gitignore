@@ -4,6 +4,7 @@
 eclipse/*
 out/*
 classes/*
+src/bin/*
 
 *.class
 *.ase
