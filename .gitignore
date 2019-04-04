@@ -3,6 +3,7 @@
 
 eclipse/*
 out/*
+classes/*
 
 *.class
 *.ase
